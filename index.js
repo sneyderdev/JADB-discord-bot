@@ -62,6 +62,35 @@ client.once('ready', () => {
   // client.users.fetch('468078148207247372').then((user) => {
   //   user.send('Hey there!');
   // });
+
+  // Create text channel command
+  command(client, 'createtextchannel', (message) => {
+    const name = message.content.replace('!createtextchannel ', '');
+
+    message.guild.channels
+      .create(name, {
+        type: 'text',
+      })
+      .then((channel) => {
+        const categoryId = '773289641838641152';
+        channel.setParent(categoryId);
+      });
+  });
+
+  // Create voice channel command
+  command(client, 'createvoicechannel', (message) => {
+    const name = message.content.replace('!createvoicechannel ', '');
+
+    message.guild.channels
+      .create(name, {
+        type: 'voice',
+      })
+      .then((channel) => {
+        const categoryId = '773289641838641152';
+        channel.setParent(categoryId);
+        channel.setUserLimit(10);
+      });
+  });
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
