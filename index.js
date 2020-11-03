@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 const command = require('./src/commands/command');
+const firstMessage = require('./src/utils/firstMessage');
 
 client.once('ready', () => {
   console.log('The client is ready!');
@@ -44,6 +45,14 @@ client.once('ready', () => {
       },
     });
   });
+
+  // Edit and react to the first message
+  firstMessage(
+    client,
+    '773276377545703424',
+    'Editing and reacting to the first message of a channel!',
+    ['🔥', '💚']
+  );
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
