@@ -5,6 +5,7 @@ const client = new Discord.Client();
 
 const command = require('./src/commands/command');
 const firstMessage = require('./src/utils/firstMessage');
+const privateMessage = require('./src/utils/privateMessage');
 
 client.once('ready', () => {
   console.log('The client is ready!');
@@ -53,6 +54,14 @@ client.once('ready', () => {
     'Editing and reacting to the first message of a channel!',
     ['🔥', '💚']
   );
+
+  // Reply to a message by DM
+  privateMessage(client, 'Ping!', 'Pong!');
+
+  // Send a DM by user's ID
+  // client.users.fetch('468078148207247372').then((user) => {
+  //   user.send('Hey there!');
+  // });
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
