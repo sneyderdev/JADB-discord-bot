@@ -3,8 +3,10 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+// Utilities
 const firstMessage = require('./src/utils/firstMessage');
 const privateMessage = require('./src/utils/privateMessage');
+const roleClaim = require('./src/utils/roleClaim');
 
 // Admin commands
 const clearChannel = require('./src/commands/commandList/admin/clearChannel');
@@ -64,6 +66,9 @@ client.once('ready', () => {
 
   // Help command
   help(Discord, client, 'help');
+
+  // Reaction roles
+  roleClaim(client);
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
