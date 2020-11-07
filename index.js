@@ -12,6 +12,8 @@ const roleClaim = require('./src/utils/roleClaim');
 const clearChannel = require('./src/commands/commandList/admin/clearChannel');
 const createTextChannel = require('./src/commands/commandList/admin/createTextChannel');
 const createVoiceChannel = require('./src/commands/commandList/admin/createVoiceChannel');
+const ban = require('./src/commands/commandList/admin/ban');
+const kick = require('./src/commands/commandList/admin/kick');
 
 // Utils commands
 const ping = require('./src/commands/commandList/utils/ping');
@@ -69,6 +71,12 @@ client.once('ready', () => {
 
   // Reaction roles
   roleClaim(client);
+
+  // Ban command
+  ban(client, 'ban');
+
+  // Kick command
+  kick(client, 'kick');
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
