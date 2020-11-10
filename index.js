@@ -7,6 +7,8 @@ const client = new Discord.Client();
 const firstMessage = require('./src/utils/firstMessage');
 const privateMessage = require('./src/utils/privateMessage');
 const roleClaim = require('./src/utils/roleClaim');
+const poll = require('./src/utils/poll');
+const welcome = require('./src/utils/welcome');
 
 // Admin commands
 const clearChannel = require('./src/commands/commandList/admin/clearChannel');
@@ -77,6 +79,12 @@ client.once('ready', () => {
 
   // Kick command
   kick(client, 'kick');
+
+  // Poll utility - command
+  poll(client);
+
+  // Welcome utility
+  welcome(client);
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
