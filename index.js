@@ -9,6 +9,7 @@ const privateMessage = require('./src/utils/privateMessage');
 const roleClaim = require('./src/utils/roleClaim');
 const poll = require('./src/utils/poll');
 const welcome = require('./src/utils/welcome');
+const memberCount = require('./src/utils/memberCount');
 
 // Admin commands
 const clearChannel = require('./src/commands/commandList/admin/clearChannel');
@@ -85,6 +86,9 @@ client.once('ready', () => {
 
   // Welcome utility
   welcome(client);
+
+  // Member count utility
+  memberCount(client);
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
