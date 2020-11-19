@@ -10,6 +10,7 @@ const roleClaim = require('./src/utils/roleClaim');
 const poll = require('./src/utils/poll');
 const welcome = require('./src/utils/welcome');
 const memberCount = require('./src/utils/memberCount');
+// const temporaryMessage = require('./src/utils/temporaryMessage');
 
 // Admin commands
 const clearChannel = require('./src/commands/commandList/admin/clearChannel');
@@ -89,6 +90,9 @@ client.once('ready', () => {
 
   // Member count utility
   memberCount(client);
+
+  // Temporary message utility
+  // temporaryMessage(client, 'This is a temporary message!', 5);
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN);
